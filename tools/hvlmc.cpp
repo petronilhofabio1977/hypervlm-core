@@ -9,6 +9,7 @@
 
 #include "hvlm/Parser.hpp"
 #include "hvlm/IRBuilder.hpp"
+#include "hvlm/VM.hpp"
 #include "hvlm/HVNodeGen.hpp"
 #include "ai/ai_client.hpp"
 
@@ -75,6 +76,22 @@ int main(int argc, char** argv)
     }
 
     std::string path = argv[1];
+
+    if(argc == 3 && std::string(argv[2]) == "--run") {
+        long t = compile_once(path);
+        if(t < 0){
+            std::cerr << "erro na compilação\n";
+            return 1;
+        }
+
+        hvlm::HyperVLM_VM vm;
+        if(!vm.load(path + ".vlm")) {
+            std::cerr << "erro ao carregar VM\n";
+            return 1;
+        }
+        vm.run();
+        return 0;
+    }
 
     if(argc == 4 && std::string(argv[2]) == "--bench") {
         int N = atoi(argv[3]);
