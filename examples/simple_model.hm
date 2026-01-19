@@ -1,0 +1,6 @@
+metadata:
+  name: simple_model
+nodes:
+  - morton: 0x0000
+    class: beam
+    args: [6.0, 0.0, 0.0]

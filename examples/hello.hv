@@ -1,0 +1,6 @@
+scene "hello_example" {
+    beam(span=6m, section="I300", material="A36")
+    slab(thickness=20cm)
+    fem { refine 1; solve }
+    render { res(800,600); output("hello.png") }
+}

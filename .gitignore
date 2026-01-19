@@ -1,0 +1,91 @@
+# ==================================================
+# Build / binários
+# ==================================================
+build/
+bin/
+*/bin/
+*.o
+*.a
+*.so
+*.exe
+*.out
+
+# ==================================================
+# Logs / outputs / archives
+# ==================================================
+logs/
+outputs/
+*.log
+*.tar.gz
+*.zip
+
+# ==================================================
+# Modelos, datasets, tokens
+# ==================================================
+*.gguf
+*.model
+*.vocab
+*token*.txt
+dataset_*.txt
+models/
+datasets/
+shards/
+speculative/
+
+# ==================================================
+# PDFs e normas técnicas
+# ==================================================
+*.pdf
+
+# ==================================================
+# Backups, patches, dumps
+# ==================================================
+.patch_backups/
+patch_backups/
+*_BACKUP*
+*backup*
+*.bak
+*.bak.*
+*.patch
+
+# ==================================================
+# Código desativado / legado
+# ==================================================
+src/**/_disabled/
+src/**/legacy/
+src/**/legacy_backup_*/
+src/**/dna_old/
+src/**/dna.bak.*
+
+# ==================================================
+# Experimentos locais
+# ==================================================
+teste.*
+examples/*.vlm
+
+# ==================================================
+# Terceiros
+# ==================================================
+third_party/
+
+# ==================================================
+# Ambientes / IDE
+# ==================================================
+venv/
+.vscode/
+.idea/
+.DS_Store
+# Binários e pesos
+*.bin
+weights_*.bin
+
+# Texto solto
+tiny.txt
+
+# Infra / datasets / experimentos
+speculative/
+prepare_datasets*.sh
+optimize_dna_*.sh
+install_*.sh
+setup_*.sh
+gshare_*.sh

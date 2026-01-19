@@ -1,0 +1,5 @@
+scene "test_dre" {
+    beam(span=4m, section="I200", material="A36")
+    slab(thickness=10cm)
+    fem { refine 1; solve }
+}
