@@ -1,0 +1,17 @@
+*** Begin Patch
+*** Update File: ai/transformer/HyperTransformerV2.cpp
+@@
+-static void causal_attn_layer(
++static void causal_attn_layer(
+     const std::vector<std::vector<float>>& Wq,
+     const std::vector<std::vector<float>>& Wk,
+     const std::vector<std::vector<float>>& Wv,
+     const std::vector<std::vector<float>>& Wo,
+     int layer_idx,
+     const hyperai::HTV2Config &cfg,
+     const std::vector<std::vector<float>>& x,
+-    std::vector<std::vector<float>>& out
++    std::vector<std::vector<float>>& out,
++    hyperai::DiamondMemory* dm
+ )
+*** End Patch

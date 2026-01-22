@@ -1,0 +1,35 @@
+diff --git a/tools/hvlmc.cpp b/tools/hvlmc.cpp
+index 0000000..1111111 100644
+--- a/tools/hvlmc.cpp
++++ b/tools/hvlmc.cpp
+@@ -10,6 +10,7 @@
+ #include <vector>
+
+ #include "hvlm/Parser.hpp"
++#include "hvlm/VM.hpp"
+ #include "hvlm/IRBuilder.hpp"
+ #include "hvlm/HVNodeGen.hpp"
+ #include "ai/ai_client.hpp"
+@@ -92,6 +93,20 @@ int main(int argc, char** argv)
+     }
+
+     std::string path = argv[1];
++
++    if(argc == 3 && std::string(argv[2]) == "--run") {
++        long t = compile_once(path);
++        if(t < 0){
++            std::cerr << "erro na compilação\n";
++            return 1;
++        }
++
++        hvlm::HyperVLM_VM vm;
++        if(!vm.load(path + ".vlm")) {
++            std::cerr << "erro ao carregar VM\n";
++            return 1;
++        }
++        vm.run();
++        return 0;
++    }
+
+     if(argc == 4 && std::string(argv[2]) == "--bench") {
+         int N = atoi(argv[3]);

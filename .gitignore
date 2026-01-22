@@ -2,6 +2,7 @@
 # Build / binários
 # ==================================================
 build/
+build_*/
 bin/
 */bin/
 *.o
@@ -35,57 +36,48 @@ speculative/
 # ==================================================
 # PDFs e normas técnicas
 # ==================================================
-*.pdf
+# PDFs gerados automaticamente (ignorar)
+*.aux
+*.synctex.gz
+*.toc
+*.out
+*.bbl
+*.blg
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
 
+# PDFs finais de documentação DEVEM entrar no git
+!docs/**/*.pdf
+!docs/relatorio/**/*.pdf
 # ==================================================
-# Backups, patches, dumps
+# Backups e arquivos temporários
 # ==================================================
-.patch_backups/
-patch_backups/
-*_BACKUP*
-*backup*
 *.bak
-*.bak.*
-*.patch
+*.backup
+*_backup*
+*_BACKUP*
+.backups/
+patch_backups/
+backups_before_full_run/
+src_BACKUP_*/
 
-# ==================================================
-# Código desativado / legado
-# ==================================================
+# Legacy / disabled code
 src/**/_disabled/
 src/**/legacy/
-src/**/legacy_backup_*/
-src/**/dna_old/
-src/**/dna.bak.*
 
-# ==================================================
-# Experimentos locais
-# ==================================================
-teste.*
-examples/*.vlm
+# Artefatos gerados
+*.vlm
+test.bin
+tiny.txt
+weights_eng.bin
 
-# ==================================================
-# Terceiros
-# ==================================================
+# Third-party (não versionar agora)
 third_party/
 
-# ==================================================
-# Ambientes / IDE
-# ==================================================
-venv/
-.vscode/
-.idea/
-.DS_Store
-# Binários e pesos
-*.bin
-weights_*.bin
-
-# Texto solto
-tiny.txt
-
-# Infra / datasets / experimentos
-speculative/
+# Scripts experimentais locais
+gshare_install_and_test.sh
+optimize_dna_avx_zstd.sh
 prepare_datasets*.sh
-optimize_dna_*.sh
-install_*.sh
 setup_*.sh
-gshare_*.sh

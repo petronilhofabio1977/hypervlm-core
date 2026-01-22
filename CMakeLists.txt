@@ -68,3 +68,4 @@ target_include_directories(run_engine PRIVATE ${CMAKE_SOURCE_DIR}/src/hvlm/rende
 # If you want to enable ATMBridge integration, add:
 # target_compile_definitions(run_engine PRIVATE -DUSE_ATM_BRIDGE)
 # target_include_directories(run_engine PRIVATE ${CMAKE_SOURCE_DIR}/atm_bridge/include)
+include(${PROJECT_SOURCE_DIR}/CMakeLists.core_test.cmake)
